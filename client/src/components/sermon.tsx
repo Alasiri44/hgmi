@@ -3,13 +3,15 @@
 type SermonProps = {
     videoId: string;
     title: string;
+    preacher: string;
+
 };
 
 export default function SermonPlayer({ videoId, title }: SermonProps) {
     return (
         <div className="w-full max-w-xl mx-auto px-2">
             {/* Thematic Wrapper with Logo-consistent Emerald Border */}
-            <div className="relative group rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-emerald-100 bg-slate-900">
+            <div className="relative group rounded-3xl overflow-hidden shadow-2xl border-2 border-white ring-1 ring-emerald-100 bg-slate-900">
                 
                 {/* Video Container with Aspect Ratio Lock */}
                 <div className="relative pt-[100%] w-full h-0">
@@ -21,17 +23,8 @@ export default function SermonPlayer({ videoId, title }: SermonProps) {
                         allowFullScreen
                     ></iframe>
                 </div>
-
-                {/* Subtle Overlay Label for Context */}
-                <div className="absolute top-4 left-4 pointer-events-none">
-                    <div className="bg-emerald-600/90 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-sm shadow-lg">
-                        Now Playing: {title}
-                    </div>
-                </div>
             </div>
 
-            {/* Reflection Effect below the player */}
-            <div className="h-6 w-3/4 mx-auto bg-emerald-900/10 blur-xl rounded-[100%] mt-2 opacity-50"></div>
         </div>
     );
 }
