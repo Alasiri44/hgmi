@@ -6,7 +6,7 @@ export default function NavBar() {
     const normalLink = "text-gray-600 hover:text-emerald-600 transition-colors duration-200 font-medium";
 
     return (
-        <nav className="w-full bg-white shadow-sm border-b border-gray-100 px-6 py-1 flex items-center justify-between">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-gray-100 px-6 py-1 flex items-center justify-between">
             
             <div className="flex items-center gap-3">
                 <img src={logo} alt="HGMI Logo" className="h-15 w-auto" />

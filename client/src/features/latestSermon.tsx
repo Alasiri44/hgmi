@@ -1,4 +1,5 @@
 import { FaPlay, FaUser, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // <iframe width="560" height="315" src="https://www.youtube.com/embed/l1WfWTc_AiY?si=L3eSSkNTvv_mLCpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 type SermonProps = {
@@ -18,7 +19,7 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
           This Week's Sermon
         </h1>
       </header>
-      
+
       <section className="max-w-6xl mx-auto px-4 pb-20">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
           <div className="relative w-full md:w-1/2 min-h-[300px] md:min-h-[400px] group">
@@ -39,10 +40,6 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
           </div>
 
           <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-            <div className="inline-block px-4 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wide mb-6 self-start">
-              {title}
-            </div>
-
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
               Dreams and Interpretations
             </h2>
@@ -70,10 +67,16 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200">
-                <FaPlay className="text-sm" />
-                Watch Now
-              </button>
+              <Link
+                to="https://youtu.be/56oZSNGd93o?si=ujL8w_ZN04eRdW2B"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200">
+                  <FaPlay className="text-sm" />
+                  Watch in Youtube
+                </button>
+              </Link>
               <button className="px-8 py-3 rounded-xl border border-gray-200 text-slate-700 font-bold hover:bg-gray-50 transition-all">
                 View All Sermons
               </button>

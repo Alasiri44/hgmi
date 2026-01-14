@@ -13,7 +13,7 @@ export default function Footer() {
                     <div className="flex items-center gap-3">
                         <img src={logo} alt="HGMI Logo" className="h-10 w-auto" />
                         <h2 className="text-xl font-bold text-black leading-tight">
-                            Grace Community<br/>Church
+                            Higher Ground<br/>Assembly
                         </h2>
                     </div>
                     <p className="text-sm leading-relaxed">
