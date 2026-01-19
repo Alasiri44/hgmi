@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <img src={banner} alt="HGMI Banner" className="w-full h-100" />
     <LatestSermon
-              videoId="56oZSNGd93o"
+              videoId="bw4Ik7qqusM"
               title="Dreams and Interpretations"
               preacher="Pastor Dolapo Lawal"
             />

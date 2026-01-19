@@ -53,7 +53,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-emerald-400 uppercase text-xs tracking-widest mb-1">Email Us</h4>
-                                        <p className="text-slate-300">info@gracecommunity.church</p>
+                                        <p className="text-slate-300">highergroundassembly@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -63,7 +63,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-emerald-400 uppercase text-xs tracking-widest mb-1">Office Hours</h4>
-                                        <p className="text-slate-300">Mon - Fri: 9:00 AM - 5:00 PM</p>
+                                        <p className="text-slate-300">Sunday 9:00 AM - 5:00 PM</p>
                                     </div>
                                 </div>
                             </div>

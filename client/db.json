@@ -1,0 +1,109 @@
+{
+  "ministries": [
+    {
+      "id": 1,
+      "title": "Kingdom Statesmen",
+      "subheading": "Iron Sharpens Iron",
+      "description": "Dedicated to building godly men through fellowship, accountability, and biblical teaching. We believe that strong men build strong families and communities.",
+      "image": "/ministryImages/men_ministry.jpg",
+      "tags": [
+        "Monthly Breakfast",
+        "Bible Study",
+        "Men's Retreat"
+      ],
+      "time": "2nd Saturday of each month, 8:00 AM",
+      "location": "Fellowship Hall"
+    },
+    {
+      "id": 2,
+      "title": "Women of Influence",
+      "subheading": "Growing Together in Grace",
+      "description": "Empowering women to grow in faith and community through mentorship and support. We create a space for every woman to flourish in her calling.",
+      "image": "/ministryImages/women_image.jpg",
+      "tags": [
+        "Prayer Circles",
+        "Book Club",
+        "Annual Conference"
+      ],
+      "time": "Tuesdays, 10:00 AM",
+      "location": "Main Sanctuary"
+    },
+    {
+      "id": 3,
+      "title": "Support Ministry",
+      "subheading": "The Hands and Feet",
+      "description": "Our support team ensures that every member of our congregation feels seen and cared for through hospital visits, meal trains, and counseling.",
+      "image": "/ministryImages/support_team.jpg",
+      "tags": [
+        "Compassion Team",
+        "Hospitality",
+        "Grief Support"
+      ],
+      "time": "On Call / As Needed",
+      "location": "Church Office"
+    },
+    {
+      "id": 4,
+      "title": "Worship Team",
+      "subheading": "Praise & Adoration",
+      "description": "Leading the congregation into the presence of God through music and song. We are a community of musicians and singers dedicated to excellence.",
+      "image": "/ministryImages/worship_team.jpg",
+      "tags": [
+        "Vocals",
+        "Instrumentals",
+        "Choir"
+      ],
+      "time": "Thursdays Rehearsal, 6:00 PM",
+      "location": "Sanctuary Stage"
+    },
+    {
+      "id": 5,
+      "title": "Media Team",
+      "subheading": "Behind the Scenes",
+      "description": "Utilizing technology to spread the Gospel. From sound engineering to live streaming, we make the message of Christ accessible to all.",
+      "image": "/ministryImages/media_team.jpg",
+      "tags": [
+        "Audio Visual",
+        "Streaming",
+        "Social Media"
+      ],
+      "time": "Sunday Service Production",
+      "location": "Tech Booth"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Sunday Worship Service",
+      "subheading": "Weekly Gathering",
+      "description": "Join us for a powerful time of worship, prayer, and a life-changing word from God. We have one session to accommodate everyone in our community.",
+      "image": "/events/service.jpg",
+      "date": "Every Sunday",
+      "time": "10:00 AM - 13:00 AM",
+      "location": "Church",
+      "buttonText": "Join Online"
+    },
+    {
+      "id": 2,
+      "title": "Mid-Week Bible Study",
+      "subheading": "Deepening the Word",
+      "description": "A mid-week recharge where we dive deeper into the scriptures. This is an interactive session designed to equip you for daily Christian living.",
+      "image": "/events/bible_study.jpg",
+      "date": "Every Tuesday",
+      "time": "8:00 PM",
+      "location": "Online",
+      "buttonText": "Join Online"
+    }, 
+    {
+      "id": 3,
+      "title": "Global Prayer Night",
+      "subheading": "Intercession & Power",
+      "description": "Coming together as a global family to stand in the gap for our nations, our families, and our church. Expect a night of breakthrough and miracles.",
+      "image": "https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80&w=1000",
+      "date": "Last Friday of the Month",
+      "time": "9:00 PM - Midnight",
+      "location": "Online",
+      "buttonText": "Register"
+    }
+  ]
+}

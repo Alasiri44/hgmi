@@ -17,7 +17,7 @@ export default function Footer() {
                         </h2>
                     </div>
                     <p className="text-sm leading-relaxed">
-                        A Christ-centered community committed to worship, discipleship, and serving our neighbors with the love of Jesus.
+                        Wisdom and knowledge will be the stability of your times, And the strength of salvation;
                     </p>
                     {/* Social Links */}
                     <div className="flex items-center gap-4 text-black text-xl pt-2">
@@ -49,9 +49,9 @@ export default function Footer() {
                     <ul className="space-y-3 text-sm">
                         <li><NavLink to="/ministries/men" className="hover:text-white">Men's Ministry</NavLink></li>
                         <li><NavLink to="/ministries/women" className="hover:text-white">Women's Ministry</NavLink></li>
-                        <li><NavLink to="/ministries/youth" className="hover:text-white">Youth Ministry</NavLink></li>
-                        <li><NavLink to="/ministries/children" className="hover:text-white">Children's Ministry</NavLink></li>
-                        <li><NavLink to="/ministries/small-groups" className="hover:text-white">Small Groups</NavLink></li>
+                        <li><NavLink to="/ministries/youth" className="hover:text-white">Support Ministry</NavLink></li>
+                        <li><NavLink to="/ministries/children" className="hover:text-white">Media Ministry</NavLink></li>
+                        <li><NavLink to="/ministries/small-groups" className="hover:text-white">Outreach and Missions</NavLink></li>
                     </ul>
                 </div>
 
