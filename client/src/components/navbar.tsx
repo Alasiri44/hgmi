@@ -30,7 +30,7 @@ export default function NavBar() {
 
             <div className="flex items-center">
                 <NavLink 
-                    to='/sermons' 
+                    to='https://www.facebook.com/hganairobiwest' 
                     className="flex items-center gap-2 bg-emerald-700 text-white px-5 py-2 rounded-md font-bold uppercase text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95"
                 >
                     <span className="relative flex h-3 w-3">

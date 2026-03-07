@@ -1,6 +1,5 @@
 import { FaPlay, FaUser, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/l1WfWTc_AiY?si=L3eSSkNTvv_mLCpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 type SermonProps = {
   videoId: string;
@@ -22,26 +21,21 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
 
       <section className="max-w-6xl mx-auto px-4 pb-20">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
-          <div className="relative w-full md:w-1/2 min-h-[300px] md:min-h-[400px] group">
-            <div className="w-full max-w-xl mx-auto px-2">
-              <div className="relative group rounded-3xl overflow-hidden shadow-2xl border-2 border-white ring-1 ring-emerald-100 bg-slate-900">
-                <div className="relative pt-[100%] w-full h-0">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${videoId}`}
-                    title={title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
+          <div className="w-full md:w-1/2 bg-slate-900 flex items-center justify-center p-4 md:p-0">
+            <div className="relative w-full aspect-video shadow-2xl">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                title={title}
+                src={`https://www.facebook.com/plugins/video.php?height=414&href=${videoId}&show_text=false&width=660&t=0`}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 pointer-events-none"></div>
           </div>
 
           <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
-              Dreams and Interpretations
+              {title || "Annointing Service"}
             </h2>
 
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
@@ -49,26 +43,26 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
               the new year with renewed faith and purpose.
             </p>
 
-            {/* Metadata Icons */}
             <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-10 border-t border-gray-100 pt-6">
               <div className="flex items-center gap-2">
                 <FaUser className="text-emerald-500" />
-                <span className="text-sm font-medium">Pastor Dolapo Lawal</span>
+                <span className="text-sm font-medium">
+                  Pastor Laureen Rakiro
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <FaCalendarAlt className="text-emerald-500" />
-                <span className="text-sm font-medium">January 5, 2026</span>
+                <span className="text-sm font-medium">March 1, 2026</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaClock className="text-emerald-500" />
-                <span className="text-sm font-medium">42 min</span>
+                <span className="text-sm font-medium">3 hours</span>
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <Link
-                to="https://youtu.be/56oZSNGd93o?si=ujL8w_ZN04eRdW2B"
+                to="https://www.youtube.com/live/gfxoungDgf0?si=wR4esq-BcO3X6v2W"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -77,9 +71,13 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
                   Watch in Youtube
                 </button>
               </Link>
+              <Link
+              to='/sermons'
+              >
               <button className="px-8 py-3 rounded-xl border border-gray-200 text-slate-700 font-bold hover:bg-gray-50 transition-all">
                 View All Sermons
               </button>
+              </Link>
             </div>
           </div>
         </div>

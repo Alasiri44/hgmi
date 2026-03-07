@@ -62,11 +62,9 @@ export default function Footer() {
                         <p>
                             P O Box 47408, Niamey Road, Nairobi West<br />Nairobi, Kenya</p>
                         <p className="font-medium text-black">+254 798 985068</p>
-                        <p>info@gracecommunity.church</p>
                         <div className="pt-2">
                             <p className="font-bold text-black">Service Times:</p>
                             <p>Sunday: 10:00 AM - 1:00 PM</p>
-                            <p>Wednesday: 7:00 PM</p>
                         </div>
                     </div>
                 </div>

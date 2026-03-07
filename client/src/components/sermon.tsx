@@ -9,12 +9,9 @@ type SermonProps = {
 
 export default function SermonPlayer({ videoId, title }: SermonProps) {
     return (
-        <div className="w-full max-w-xl mx-auto px-2">
-            {/* Thematic Wrapper with Logo-consistent Emerald Border */}
-            <div className="relative group rounded-3xl overflow-hidden shadow-2xl border-2 border-white ring-1 ring-emerald-100 bg-slate-900">
-                
-                {/* Video Container with Aspect Ratio Lock */}
-                <div className="relative pt-[100%] w-full h-0">
+        <div className="w-full max-w-sm mx-auto px-2 mb-6">
+            <div className="relative group rounded-2xl overflow-hidden shadow-xl border-2 border-white ring-1 ring-emerald-100 bg-slate-900">
+                <div className="relative aspect-video w-full">
                     <iframe
                         className="absolute top-0 left-0 w-full h-full"
                         src={`https://www.youtube.com/embed/${videoId}`}
@@ -24,7 +21,9 @@ export default function SermonPlayer({ videoId, title }: SermonProps) {
                     ></iframe>
                 </div>
             </div>
-
+            <div className="mt-2 px-1">
+                <h3 className="text-sm font-semibold text-slate-800 line-clamp-1">{title}</h3>
+            </div>
         </div>
     );
 }
