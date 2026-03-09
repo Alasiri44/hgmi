@@ -79,7 +79,7 @@ export default function WelcomingSection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <div className="w-full md:w-1/2 relative">
           <div className="rounded-[40px] overflow-hidden shadow-2xl">
-            <img src={audience} alt="HGMI Banner" className="w-full h-100" />
+            <img src={audience} alt="audience" className="w-full h-auto min-h-[280px] max-h-[400px]" />
           </div>
           <div className="absolute bottom-[-20px] left-8 bg-[#EFB839] text-[#1E3A5F] px-8 py-5 rounded-xl font-bold text-center leading-tight shadow-xl">
             <span className="text-2xl">10+</span>
