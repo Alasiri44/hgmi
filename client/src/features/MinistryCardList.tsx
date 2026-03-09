@@ -21,7 +21,7 @@ export default function MinistryCardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/ministries");
+        const response = await axios.get("https://hgmi-backend.onrender.com//ministries");
         setMinistryData(response.data);
         setLoading(false);
       } catch (err: any) {

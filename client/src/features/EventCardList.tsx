@@ -22,7 +22,7 @@ export default function EventCardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/events");
+        const response = await axios.get("https://hgmi-backend.onrender.com//events");
         setEventData(response.data);
         setLoading(false);
       } catch (err: any) {
