@@ -1,5 +1,4 @@
 import {
-  FaUser,
   FaCross,
   FaGlobe,
   FaHandsHelping,
@@ -8,6 +7,7 @@ import {
 import PageBanner from "../components/pagesBanner";
 import plr from "../assets/pastorlaureen.jpg";
 import rnr from "../assets/revnobert.jpg";
+import Map from "../components/Map";
 
 export default function AboutPage() {
   return (
@@ -177,6 +177,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            < Map/>
           </div>
         </section>
       </div>

@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import logo from '../assets/hgmi-logo.png';
 
 export default function NavBar() {
-    const activeLink = "text-emerald-700 font-bold border-b-2 border-emerald-700";
+    const activeLink = "text-emerald-700 font-bold border-b-2 border-[#fbbf24]";
     const normalLink = "text-gray-600 hover:text-emerald-600 transition-colors duration-200 font-medium";
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-gray-100 px-6 py-1 flex items-center justify-between">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-[#fbbf24] px-6 py-1 flex items-center justify-between">
             
             <div className="flex items-center gap-3">
                 <img src={logo} alt="HGMI Logo" className="h-15 w-auto" />
@@ -38,6 +38,16 @@ export default function NavBar() {
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
                     </span>
                     Watch Live
+                </NavLink>
+                 <NavLink 
+                    to='https://www.google.com/maps/dir/?api=1&destination=-1.3085544321730092,36.824518910903066,' 
+                    className="m-2 flex items-center gap-2 bg-emerald-700 text-white px-5 py-2 rounded-md font-bold uppercase text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95"
+                >
+                    <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                    </span>
+                    Get Directions
                 </NavLink>
             </div>
         </nav>
