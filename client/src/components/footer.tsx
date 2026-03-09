@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-emerald-900 text-black border-t border-amber-400 pt-16 pb-8 relative">
+    <footer className="bg-emerald-900 text-white border-t border-amber-400 pt-16 pb-8 relative">
       {/* Golden Curve */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen overflow-hidden leading-none">
         <svg
@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <img src={logo} alt="HGMI Logo" className="h-10 w-auto" />
-            <h2 className="text-xl font-bold text-black leading-tight">
+            <h2 className="text-xl font-bold text-white leading-tight">
               Higher Ground
               <br />
               Assembly
@@ -50,7 +50,7 @@ export default function Footer() {
             strength of salvation;
           </p>
 
-          <div className="flex items-center gap-4 text-black text-xl pt-2">
+          <div className="flex items-center gap-4 text-white text-xl pt-2">
             <a
               href="https://web.facebook.com/hganairobiwest"
               className="hover:text-amber-400 transition-colors"
@@ -92,7 +92,7 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div>
-          <h3 className="text-black font-bold uppercase tracking-wider mb-6">
+          <h3 className="text-white font-bold uppercase tracking-wider mb-6">
             Quick Links
           </h3>
           <ul className="space-y-3 text-sm">
@@ -131,7 +131,7 @@ export default function Footer() {
 
         {/* Column 3: Ministries */}
         <div>
-          <h3 className="text-black font-bold uppercase tracking-wider mb-6">
+          <h3 className="text-white font-bold uppercase tracking-wider mb-6">
             Ministries
           </h3>
           <ul className="space-y-3 text-sm">
@@ -171,7 +171,7 @@ export default function Footer() {
 
         {/* Column 4: Visit Us */}
         <div>
-          <h3 className="text-black font-bold uppercase tracking-wider mb-6">
+          <h3 className="text-white font-bold uppercase tracking-wider mb-6">
             Visit Us
           </h3>
           <div className="text-sm space-y-4">
@@ -180,16 +180,16 @@ export default function Footer() {
               <br />
               Nairobi, Kenya
             </p>
-            <p className="font-medium text-black">+254 798 985068</p>
+            <p className="font-medium text-white">+254 798 985068</p>
             <div className="pt-2">
-              <p className="font-bold text-black">Service Times:</p>
+              <p className="font-bold text-white">Service Times:</p>
               <p>Sunday: 10:00 AM - 1:00 PM</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-amber-400 text-center text-xs text-black">
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-amber-400 text-center text-xs text-white">
         <p>
           &copy; {new Date().getFullYear()} Higher Grounds Ministries
           International. All rights reserved.
