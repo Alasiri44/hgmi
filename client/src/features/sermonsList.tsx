@@ -22,7 +22,9 @@ export default function SermonsList() {
 
     return hours * 3600 + minutes * 60 + seconds;
   };
+
   useEffect(() => {
+    const YOUTUBE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
     const fetchSermons = async () => {
       try {
         const listRes = await axios.get(
@@ -32,7 +34,7 @@ export default function SermonsList() {
               part: "snippet,contentDetails",
               maxResults: 50,
               playlistId: "UU2n_8iVpdCHDjZdFz_W8uEQ",
-              key: "AIzaSyCY8J6kCWANQkCk26tVfIkV8ENgp8Oma7I",
+              key: YOUTUBE_API_KEY,
             },
           },
         );
@@ -47,7 +49,7 @@ export default function SermonsList() {
             params: {
               part: "contentDetails,snippet",
               id: videoIds,
-              key: "AIzaSyCY8J6kCWANQkCk26tVfIkV8ENgp8Oma7I",
+              key: YOUTUBE_API_KEY,
             },
           },
         );

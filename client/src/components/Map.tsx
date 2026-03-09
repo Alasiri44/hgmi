@@ -22,7 +22,7 @@ export default function Map() {
   const directionsUrl =
     "https://www.google.com/maps/dir/?api=1&destination=-1.3085544321730092,36.824518910903066,";
 
-  const API_KEY = "AIzaSyCY8J6kCWANQkCk26tVfIkV8ENgp8Oma7I";
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 
   return (
     <LoadScript googleMapsApiKey={API_KEY}>
