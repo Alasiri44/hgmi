@@ -70,24 +70,25 @@ export default function NavBar() {
       </div>
 
       {/* Action buttons (desktop always visible) */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 sm:gap-2">
         <NavLink
           to="https://www.facebook.com/hganairobiwest"
-          className="flex items-center gap-2 bg-emerald-700 text-white px-5 py-2 rounded-md font-bold uppercase text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95"
+          className="flex items-center gap-1.5 sm:gap-2 bg-emerald-700 text-white px-3 py-1.5 sm:px-5 sm:py-2 rounded-md font-bold uppercase text-[10px] sm:text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95 whitespace-nowrap"
         >
-          <span className="relative flex h-3 w-3">
+          <span className="relative flex h-2 w-2 sm:h-3 sm:w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 sm:h-3 sm:w-3 bg-white"></span>
           </span>
           Watch Live
         </NavLink>
+
         <NavLink
           to="https://www.google.com/maps/dir/?api=1&destination=-1.3085544321730092,36.824518910903066,"
-          className="flex items-center gap-2 bg-emerald-700 text-white px-5 py-2 rounded-md font-bold uppercase text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95"
+          className="flex items-center gap-1.5 sm:gap-2 bg-emerald-700 text-white px-3 py-1.5 sm:px-5 sm:py-2 rounded-md font-bold uppercase text-[10px] sm:text-sm hover:bg-emerald-800 transition-all shadow-md active:scale-95 whitespace-nowrap"
         >
-          <span className="relative flex h-3 w-3">
+          <span className="relative flex h-2 w-2 sm:h-3 sm:w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 sm:h-3 sm:w-3 bg-white"></span>
           </span>
           Get Directions
         </NavLink>
