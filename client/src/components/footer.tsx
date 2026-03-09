@@ -136,23 +136,23 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3 text-sm">
             <li>
-              <NavLink to="/ministries/men" className="hover:text-amber-400">
+              <NavLink to="/ministries" className="hover:text-amber-400">
                 Men's Ministry
               </NavLink>
             </li>
             <li>
-              <NavLink to="/ministries/women" className="hover:text-amber-400">
+              <NavLink to="/ministries" className="hover:text-amber-400">
                 Women's Ministry
               </NavLink>
             </li>
             <li>
-              <NavLink to="/ministries/youth" className="hover:text-amber-400">
+              <NavLink to="/ministries" className="hover:text-amber-400">
                 Support Ministry
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/ministries/children"
+                to="/ministries"
                 className="hover:text-amber-400"
               >
                 Media Ministry
@@ -160,7 +160,7 @@ export default function Footer() {
             </li>
             <li>
               <NavLink
-                to="/ministries/small-groups"
+                to="/ministries"
                 className="hover:text-amber-400"
               >
                 Outreach and Missions
