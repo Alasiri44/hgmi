@@ -7,6 +7,7 @@ import Sermons from "./pages/sermons";
 import Ministries from "./pages/ministries";
 import Events from "./pages/events";
 import Give from "./pages/give";
+import Register from "./pages/register";
 
 
 export const routes = [
@@ -21,6 +22,10 @@ export const routes = [
             {
                 path: 'about',
                 element: < About/>
+            },
+            {
+                path: 'register',
+                element: < Register/>
             },
             {
                 path: 'contact',

@@ -121,7 +121,7 @@ export default function WelcomingSection() {
 
           <div className="flex flex-wrap items-center gap-4 mt-12 w-full">
             <Link
-              to="/about"
+              to="/register"
               className="inline-flex items-center gap-2 bg-[#1E3A5F] hover:bg-[#152945] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#1E3A5F]/20 text-sm"
             >
               Get Connected
