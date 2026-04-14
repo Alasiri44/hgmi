@@ -4,10 +4,35 @@ import { Link } from "react-router-dom";
 type SermonProps = {
   videoId: string;
   title: string;
+  paragraph: string,
   preacher: string;
 };
 
-export default function LatestSermon({ videoId, title }: SermonProps) {
+const getSunday = (): Date => {
+  const today = new Date();
+  const day = today.getDay(); // 0 (Sun) - 6 (Sat)
+
+  const sunday = new Date(today);
+  sunday.setDate(today.getDate() - day);
+
+  return sunday;
+};
+
+const getOrdinal = (n: number): string => {
+  const suffixes = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  const suffix =
+    suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0];
+
+  return `${n}${suffix}`;
+};
+
+const getSundayDate = (): string => {
+  const sunday = getSunday();
+  return getOrdinal(sunday.getDate());
+};
+
+export default function LatestSermon({ videoId, title, preacher, paragraph }: SermonProps) {
   return (
     <div className="bg-[#FDF9F0] min-h-screen font-sans">
       <header className="text-center pt-16 pb-10">
@@ -39,20 +64,19 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
             </h2>
 
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              Discover how to embrace God's promises and walk confidently into
-              the new year with renewed faith and purpose.
+              {paragraph}
             </p>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-10 border-t border-gray-100 pt-6">
               <div className="flex items-center gap-2">
                 <FaUser className="text-emerald-500" />
                 <span className="text-sm font-medium">
-                  Pastor Laureen Rakiro
+                  {preacher || "Pastor Laureen Rakiro"}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <FaCalendarAlt className="text-emerald-500" />
-                <span className="text-sm font-medium">March 1, 2026</span>
+                <span className="text-sm font-medium">{getSundayDate()}</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaClock className="text-emerald-500" />
@@ -62,7 +86,7 @@ export default function LatestSermon({ videoId, title }: SermonProps) {
 
             <div className="flex flex-wrap gap-4">
               <Link
-                to="https://www.youtube.com/live/gfxoungDgf0?si=wR4esq-BcO3X6v2W"
+                to="https://www.youtube.com/live/p7mg1W32XQU?si=BWmeCcUFapNle3KN"
                 target="_blank"
                 rel="noopener noreferrer"
               >

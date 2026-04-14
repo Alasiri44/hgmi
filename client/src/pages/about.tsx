@@ -1,13 +1,16 @@
 import {
-  FaCross,
+  FaAward,
   FaGlobe,
   FaHandsHelping,
-  FaMapMarkerAlt,
+  FaShieldAlt,
+  FaSyncAlt,
+  FaUsers,
 } from "react-icons/fa";
 import PageBanner from "../components/pagesBanner";
 import plr from "../assets/pastorlaureen.jpg";
 import rnr from "../assets/revnobert.jpg";
 import Map from "../components/Map";
+import StatementOfFaith from "../features/StatementOfFaith";
 
 export default function AboutPage() {
   return (
@@ -23,22 +26,40 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
+                About Us
+              </h2>
+              <div className="w-20 h-1.5 bg-emerald-500"></div>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                The Higher Ground Assembly is an offshoot of the Higher Ground
+                Ministries International (HGMI) set up in Nairobi West. HGMI
+                encompasses a broad vision given to the Executive Director of
+                the ministry, Rev. Dr. Norbert Rakiro. The Higher Ground
+                Assembly, Nairobi West is congregational arm of the Ministry and
+                is termed “A Place of Transformation”
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
+                The Vision
+              </h2>
+              <div className="w-20 h-1.5 bg-emerald-500"></div>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                To be an urban community of believers that transform the world
+                with the Gospel of the Kingdom of our Lord Jesus Christ
+              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
                 The Mission
               </h2>
               <div className="w-20 h-1.5 bg-emerald-500"></div>
               <p className="text-slate-600 text-lg leading-relaxed">
-                Based in Nairobi West, Kenya, Higher Ground Assembly is more
-                than a local church; it is a global mandate. Under the spiritual
-                covering of Rev. Nobert and Pastor Laureen Rakiro, we are
-                committed to the perfection of saints and the maturity of the
-                five-fold ministry.
-              </p>
-              <p className="text-slate-600 text-lg leading-relaxed">
-                We believe in preaching the gospel of the kingdom and showing
-                its reality to the entire world through foundational biblical
-                truths and the power of the Holy Spirit.
+                To transform lives through Christ-centered discipleship, develop
+                leaders of character and competence, align believers with God’s
+                will, equip them to influence the marketplace, and prepare the
+                Church as the ready and radiant Bride of Christ.
               </p>
             </div>
+
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1510519133417-2407cbb2241f?q=80&w=1600&auto=format&fit=crop"
@@ -142,18 +163,42 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Statement of Faith Grid */}
+        <StatementOfFaith />
+
         {/* Core Values Grid */}
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               <div className="space-y-4">
-                <FaCross className="text-emerald-500 text-3xl" />
+                <FaShieldAlt className="text-emerald-500 text-3xl" />
+                <h4 className="text-xl font-bold text-slate-900">Integrity</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Our pursuit of Christlikeness in the ministry demonstrates our
+                  dedication to personal holiness and honesty. We are dedicated
+                  to promoting ardent prayer, striving for excellence, and
+                  teaching and living sound biblical truth
+                </p>
+              </div>
+              <div className="space-y-4">
+                <FaSyncAlt className="text-emerald-500 text-3xl" />
                 <h4 className="text-xl font-bold text-slate-900">
-                  Apostolic Foundation
+                  Transformation
                 </h4>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  We believe in the restoration of the apostolic and prophetic
-                  ministry as the foundation for modern church growth.
+                  We are dedicated to promoting sustained social action, servant
+                  leadership in all facets of ministry, and purposeful
+                  discipleship and stewardship.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <FaAward className="text-emerald-500 text-3xl" />
+                <h4 className="text-xl font-bold text-slate-900">Excellence</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  We take great pleasure in giving God our best as a sign of our
+                  esteem and reverence for Him. We blend our pursuit of
+                  excellence with our dedication to assisting others in
+                  developing their talents and skills.
                 </p>
               </div>
               <div className="space-y-4">
@@ -162,22 +207,26 @@ export default function AboutPage() {
                   Kingdom Community
                 </h4>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Unity, loyalty, and selfless love are the hallmarks of our
-                  fellowship in Nairobi West and beyond.
+                  We are committed to collaborating with and existing in a
+                  community where we uphold the family, encourage camaraderie,
+                  and support togetherness. We must leave them with a favorable
+                  impression that will last. We will stand in support of
+                  individuals who experience social exclusion.
                 </p>
               </div>
+
               <div className="space-y-4">
-                <FaMapMarkerAlt className="text-emerald-500 text-3xl" />
+                <FaUsers className="text-emerald-500 text-3xl" />
                 <h4 className="text-xl font-bold text-slate-900">
-                  Nairobi West Home
+                  Collaboration
                 </h4>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Strategically located on Niamey Road to serve as a light in
-                  the city and a hub for global impact.
+                  To identify and establish key partnerships to drive the
+                  objectives of the ministry
                 </p>
               </div>
             </div>
-            < Map/>
+            <Map />
           </div>
         </section>
       </div>

@@ -7,6 +7,7 @@ import {
 import { useState } from "react";
 
 const containerStyle = {
+  margin:"10px",
   width: "100%",
   height: "450px",
 };
@@ -25,7 +26,7 @@ export default function Map() {
   const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 
   return (
-    <LoadScript googleMapsApiKey={API_KEY}>
+    <LoadScript googleMapsApiKey={API_KEY} >
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16}>
         <Marker position={center} onClick={() => setShowInfo(true)} />
 

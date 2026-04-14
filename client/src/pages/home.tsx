@@ -9,9 +9,10 @@ export default function Home() {
       <img src={banner} alt="HGMI Banner" className="w-full h-auto min-h-[280px] max-h-[400px]" />
       < WelcomingSection/>
     <LatestSermon
-              videoId="https%3A%2F%2Fwww.facebook.com%2Fhganairobiwest%2Fvideos%2F1435675764603901%2F"
-              title="Annointing Service"
+              videoId="https%3A%2F%2Fwww.facebook.com%2Fhganairobiwest%2Fvideos%2F841948748931988%2F"
+              title="Why Easter Matters"
               preacher="Pastor Laureen Rakiro"
+              paragraph="The Resurrection That Conquered Sin, Temptation & Death (Isaiah 53) - part 2"
             />
     </>
   );
