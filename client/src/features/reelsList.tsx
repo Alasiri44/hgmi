@@ -8,7 +8,7 @@ type Video = {
   videoId: string;
 };
 
-export default function SermonsList() {
+export default function ReelsList() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +27,7 @@ export default function SermonsList() {
     const YOUTUBE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
     const UPLOADS_ID = import.meta.env.VITE_UPLOADS_ID;
 
-    const fetchSermons = async () => {
+    const fetchReels = async () => {
       try {
         const listRes = await axios.get(
           "https://www.googleapis.com/youtube/v3/playlistItems",
@@ -61,7 +61,7 @@ export default function SermonsList() {
             const duration = parseDuration(video.contentDetails.duration);
             const title = video.snippet.title.toLowerCase();
 
-            const isLongEnough = duration >= 1200;
+            const isLongEnough = duration <= 1200;
             const isNotExcluded =
               !title.includes("memorial") && !title.includes("weds");
 
@@ -80,7 +80,7 @@ export default function SermonsList() {
       }
     };
 
-    fetchSermons();
+    fetchReels();
   }, []);
 
   if (loading) return <p>Loading...</p>;

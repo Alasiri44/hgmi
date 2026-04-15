@@ -8,6 +8,10 @@ import Ministries from "./pages/ministries";
 import Events from "./pages/events";
 import Give from "./pages/give";
 import Register from "./pages/register";
+import SermonsList from "./features/sermonsList";
+import ReelsList from "./features/reelsList";
+import BooksList from "./features/booksList";
+import { Navigate } from "react-router-dom";
 
 
 export const routes = [
@@ -33,7 +37,25 @@ export const routes = [
             },
             {
                 path: 'sermons',
-                element: < Sermons/>
+                element: < Sermons/>,
+                children:[
+                    {
+                        index: true,
+                        element: <Navigate to="preachings" replace />
+                    },
+                    {
+                        path: "preachings",
+                        element: < SermonsList/>
+                    },
+                    {
+                        path:"reels",
+                        element: < ReelsList/>
+                    },
+                    {
+                        path: 'books',
+                        element: < BooksList/>
+                    }
+                ]
             },
             {
                 path: 'ministries',

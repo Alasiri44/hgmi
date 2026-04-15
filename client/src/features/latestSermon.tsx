@@ -1,11 +1,19 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { FaPlay, FaUser, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-type SermonProps = {
-  videoId: string;
+type Video = {
   title: string;
-  paragraph: string,
-  preacher: string;
+  videoId: string;
+  description: string;
+};
+
+const limitToSentences = (text: string, maxSentences: number = 3) => {
+  const sentences = text.match(/[^.!?]+[.!?]+/g);
+  if (!sentences) return text;
+
+  return sentences.slice(0, maxSentences).join(" ");
 };
 
 const getSunday = (): Date => {
@@ -27,12 +35,49 @@ const getOrdinal = (n: number): string => {
   return `${n}${suffix}`;
 };
 
-const getSundayDate = (): string => {
+const formatFullDate = (): string => {
   const sunday = getSunday();
-  return getOrdinal(sunday.getDate());
+
+  const day = getOrdinal(sunday.getDate());
+  const month = sunday.toLocaleString("en-GB", { month: "long" });
+  const year = sunday.getFullYear();
+
+  return `${day} ${month} ${year}`;
 };
 
-export default function LatestSermon({ videoId, title, preacher, paragraph }: SermonProps) {
+export default function LatestSermon() {
+    const [video, setVideo] = useState<Video | null>(null);
+
+  useEffect(() => {
+    const YOUTUBE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+    const UPLOADS_ID = import.meta.env.VITE_UPLOADS_ID;
+
+    const fetchLatest = async () => {
+      const res = await axios.get(
+        "https://www.googleapis.com/youtube/v3/playlistItems",
+        {
+          params: {
+            part: "snippet,contentDetails",
+            maxResults: 1, // 🔥 only latest
+            playlistId: UPLOADS_ID,
+            key: YOUTUBE_API_KEY,
+          },
+        }
+      );
+
+      const item = res.data.items[0];
+
+      setVideo({
+        title: item.snippet.title,
+        videoId: item.contentDetails.videoId,
+        description: item.snippet.description,
+      });
+    };
+
+    fetchLatest();
+  }, []);
+
+  if (!video) return <p>Loading...</p>;
   return (
     <div className="bg-[#FDF9F0] min-h-screen font-sans">
       <header className="text-center pt-16 pb-10">
@@ -50,8 +95,8 @@ export default function LatestSermon({ videoId, title, preacher, paragraph }: Se
             <div className="relative w-full aspect-video shadow-2xl">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                title={title}
-                src={`https://www.facebook.com/plugins/video.php?height=414&href=${videoId}&show_text=false&width=660&t=0`}
+                title={video.title}
+                src={`https://www.youtube.com/embed/${video.videoId}`}
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
@@ -59,24 +104,24 @@ export default function LatestSermon({ videoId, title, preacher, paragraph }: Se
           </div>
 
           <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
-              {title || "Annointing Service"}
-            </h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
+              {video.title || "Annointing Service"}
+            </h3>
 
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              {paragraph}
+              {limitToSentences(video.description, 3)}
             </p>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-10 border-t border-gray-100 pt-6">
               <div className="flex items-center gap-2">
                 <FaUser className="text-emerald-500" />
                 <span className="text-sm font-medium">
-                  {preacher || "Pastor Laureen Rakiro"}
+                  {"Pastor Laureen Rakiro"}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <FaCalendarAlt className="text-emerald-500" />
-                <span className="text-sm font-medium">{getSundayDate()}</span>
+                <span className="text-sm font-medium">{formatFullDate()}</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaClock className="text-emerald-500" />
