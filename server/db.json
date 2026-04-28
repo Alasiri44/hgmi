@@ -11,22 +11,22 @@
         "Bible Study",
         "Men's Retreat"
       ],
-      "time": "2nd Saturday of each month, 8:00 AM",
-      "location": "Fellowship Hall"
+      "time": " ",
+      "location": " "
     },
     {
       "id": 2,
       "title": "Women of Influence",
       "subheading": "Growing Together in Grace",
-      "description": "Empowering women to grow in faith and community through mentorship and support. We create a space for every woman to flourish in her calling.",
+      "description": "Are you a woman with a heart for God and a desire to make a difference? Women  of Influence is calling YOU! We are a community of Christ-centered women from all walks of life, united to influence our homes, communities, and the world for Jesus",
       "image": "/ministryImages/women_image.jpg",
       "tags": [
         "Prayer Circles",
         "Book Club",
         "Annual Conference"
       ],
-      "time": "Tuesdays, 10:00 AM",
-      "location": "Main Sanctuary"
+      "time": " ",
+      "location": " "
     },
     {
       "id": 3,
@@ -40,7 +40,7 @@
         "Grief Support"
       ],
       "time": "On Call / As Needed",
-      "location": "Church Office"
+      "location": "Church"
     },
     {
       "id": 4,
@@ -53,8 +53,8 @@
         "Instrumentals",
         "Choir"
       ],
-      "time": "Thursdays Rehearsal, 6:00 PM",
-      "location": "Sanctuary Stage"
+      "time": " ",
+      "location": "Sanctuary"
     },
     {
       "id": 5,
@@ -90,7 +90,7 @@
       "description": "A mid-week recharge where we dive deeper into the scriptures. This is an interactive session designed to equip you for daily Christian living.",
       "image": "/events/bible_study.jpg",
       "date": "Every Tuesday",
-      "time": "8:00 PM",
+      "time": "8:00 PM - 9:30 PM",
       "location": "Online",
       "buttonText": "Join Online"
     }, 
