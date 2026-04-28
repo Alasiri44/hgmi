@@ -21,7 +21,9 @@ export default function MinistryCardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://hgmi-backend.onrender.com//ministries");
+        const response = await axios.get(
+          "https://hgmi-backend.onrender.com//ministries",
+        );
         setMinistryData(response.data);
         setLoading(false);
       } catch (err: any) {
@@ -73,16 +75,18 @@ export default function MinistryCardList() {
 
               {/* Meeting Times Card */}
               <div className="bg-[#F3EFE0]/60 p-6 rounded-2xl border border-emerald-50 space-y-3">
-              { m.time?.trim() && <div className="flex items-center gap-3 text-slate-700">
-                  <span className="text-emerald-600">🕒</span>
-                  <span className="font-medium">{m.time}</span>
-                </div>
-                }
-                {m.location?.trim() && <div className="flex items-center gap-3 text-slate-700">
-                  <span className="text-emerald-600">📍</span>
-                  <span className="font-medium">{m.location}</span>
-                </div>
-                }
+                {m.time?.trim() && (
+                  <div className="flex items-center gap-3 text-slate-700">
+                    <span className="text-emerald-600">🕒</span>
+                    <span className="font-medium">{m.time}</span>
+                  </div>
+                )}
+                {m.location?.trim() && (
+                  <div className="flex items-center gap-3 text-slate-700">
+                    <span className="text-emerald-600">📍</span>
+                    <span className="font-medium">{m.location}</span>
+                  </div>
+                )}
               </div>
 
               <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200 group">
