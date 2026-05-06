@@ -1,7 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
 import MinistryCard from "../components/ministry";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { client } from "../lib/sanity";
 
 type Ministry = {
   id: number;
@@ -15,32 +15,33 @@ type Ministry = {
 };
 
 export default function MinistryCardList() {
-  const [ministryData, setMinistryData] = useState<Ministry[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [ministries, setMinistries] = useState<Ministry[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://hgmi-backend.onrender.com//ministries",
-        );
-        setMinistryData(response.data);
-        setLoading(false);
-      } catch (err: any) {
-        console.log("Error getting the data", err);
-        setError(err);
-      }
+      const ministriesQuery = `*[_type == "ministry"]{
+  _id,
+  title,
+  subheading,
+  description,
+  tags,
+  time,
+  location,
+  "image": image.asset->url
+      }`;
+
+      const ministriesData = await client.fetch(ministriesQuery);
+
+      setMinistries(ministriesData);
     };
 
     fetchData();
   }, []);
 
-  error && <p>Error getting the ministries</p>;
-  loading && <p>The page is loading....</p>;
   return (
     <>
       <section className="max-w-7xl mx-auto px-6 py-20 space-y-32">
-        {ministryData.map((m, index) => (
+        {ministries?.map((m: Ministry, index: number) => (
           <div
             key={m.title}
             className={`flex flex-col ${
@@ -49,7 +50,6 @@ export default function MinistryCardList() {
           >
             <MinistryCard image={m.image} title={m.title} />
 
-            {/* Content Section */}
             <div className="w-full lg:w-1/2 space-y-6">
               <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm">
                 {m.subheading}

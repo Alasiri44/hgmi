@@ -1,7 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import EventCard from "../components/event";
 import { FaCalendarAlt } from "react-icons/fa";
+import { client } from "../lib/sanity";
+import { useState, useEffect } from "react";
 
 type Event = {
   id: number;
@@ -15,40 +15,39 @@ type Event = {
   buttonText: string;
 };
 export default function EventCardList() {
-  const [eventData, setEventData] = useState<Event[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get("https://hgmi-backend.onrender.com//events");
-        setEventData(response.data);
-        setLoading(false);
-      } catch (err: any) {
-        console.log(err);
-        setError("Error getting the events");
-      }
+      const eventsQuery = `*[_type == "event"]{
+        _id,
+        title,
+        date,
+        time,
+        "imageUrl": image.asset->url
+      }`;
+
+      const eventsData = await client.fetch(eventsQuery);
+
+      setEvents(eventsData);
     };
 
     fetchData();
   }, []);
-  error && <p>Error getting the ministries</p>;
-  loading && <p>The page is loading....</p>;
 
   return (
     <>
       <section className="max-w-7xl mx-auto px-6 py-20">
-        {eventData.length > 0 ? (
+        {events.length > 0 ? (
           <div className="space-y-32">
-            {eventData.map((event, index) => (
+            {events.map((event: Event, index: number) => (
               <div
                 key={event.title}
                 className={`flex flex-col ${
                   index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-12`}
               >
-                < EventCard event={event}/>
+                <EventCard event={event} />
               </div>
             ))}
           </div>

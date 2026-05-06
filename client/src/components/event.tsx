@@ -21,6 +21,7 @@ export default function EventCard({ event }: EventCardProps) {
 
     // Helper to ensure Unsplash or external URLs request high-res versions
   const getHighResUrl = (url: string) => {
+    if (!url) return ""
     if (url.includes('unsplash.com')) {
       // Force quality to 100 and width to 1600px for sharpness on all screens
       return url.replace(/q=\d+/, 'q=100').replace(/w=\d+/, 'w=1600');
