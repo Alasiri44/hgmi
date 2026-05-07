@@ -22,9 +22,13 @@ export default function EventCardList() {
       const eventsQuery = `*[_type == "event"]{
         _id,
         title,
+        subheading,
         date,
+        description,
+        location,
         time,
-        "imageUrl": image.asset->url
+        buttonText,
+        "image": image.asset->url
       }`;
 
       const eventsData = await client.fetch(eventsQuery);
