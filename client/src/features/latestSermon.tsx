@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { FaPlay, FaUser, FaCalendarAlt, FaClock } from "react-icons/fa";
+import { FaPlay, FaCalendarAlt} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 type Video = {
@@ -113,20 +113,20 @@ export default function LatestSermon() {
             </p>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-10 border-t border-gray-100 pt-6">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <FaUser className="text-emerald-500" />
                 <span className="text-sm font-medium">
                   {"Pastor Laureen Rakiro"}
                 </span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
                 <FaCalendarAlt className="text-emerald-500" />
                 <span className="text-sm font-medium">{formatFullDate()}</span>
               </div>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <FaClock className="text-emerald-500" />
                 <span className="text-sm font-medium">3 hours</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex flex-wrap gap-4">

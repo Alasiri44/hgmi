@@ -21,16 +21,16 @@ export default function MinistryCardList() {
   useEffect(() => {
     const fetchData = async () => {
       const ministriesQuery = `*[_type == "ministry"]{
-  _id,
-  title,
-  subheading,
-  description,
-  tags,
-  time,
-  link,
-  location,
-  "image": image.asset->url
-      }`;
+        _id,
+        title,
+        subheading,
+        description,
+        tags,
+        time,
+        link,
+        location,
+        "image": image.asset->url
+            }`;
 
       const ministriesData = await client.fetch(ministriesQuery);
 
@@ -92,7 +92,9 @@ export default function MinistryCardList() {
               </div>
 
               <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200 group">
-                 <a href={m.link} target="_blank">Get Connected</a> 
+                <a href={m.link} target="_blank">
+                  Get Connected
+                </a>
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </button>
             </div>

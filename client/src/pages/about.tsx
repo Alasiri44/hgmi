@@ -7,10 +7,9 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import PageBanner from "../components/pagesBanner";
-import plr from "../assets/pastorlaureen.jpg";
-import rnr from "../assets/revnobert.jpg";
 import Map from "../components/Map";
 import StatementOfFaith from "../features/StatementOfFaith";
+import Leaders from "../features/leaders";
 
 export default function AboutPage() {
   return (
@@ -85,85 +84,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership Section */}
-        <section className="bg-slate-50 py-24 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-slate-900">
-                Our Leadership
-              </h2>
-              <p className="text-slate-500 mt-4">
-                Led by the Spirit, serving the People
-              </p>
-            </div>
+        < Leaders/>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Rev. Nobert - Card with Image and Bottom-aligned Details */}
-              <div className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow group">
-                <div className="relative w-full aspect-[5/5]">
-                  <img
-                    src={rnr}
-                    alt="Rev. Nobert Rakiro"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {/* Bottom Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
-
-                  {/* Text anchored to the bottom of the image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-                    <h3 className="text-2xl font-bold text-white">
-                      Rev. Nobert Rakiro
-                    </h3>
-                    <p className="text-emerald-400 font-semibold uppercase tracking-widest text-sm">
-                      Senior Pastor & Visionary
-                    </p>
-                  </div>
-                </div>
-                <div className="p-8 text-center">
-                  <p className="text-slate-600 leading-relaxed">
-                    Rev. Nobert is a man of prayer and deep apostolic insight.
-                    His ministry is focused on raising a generation of believers
-                    who are established in the truth and walk in the fullness of
-                    their spiritual inheritance.
-                  </p>
-                </div>
-              </div>
-
-              {/* Pastor Laureen - Card with Image and Bottom-aligned Details */}
-              <div className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow group">
-                <div className="relative w-full aspect-[5/5]">
-                  <img
-                    src={plr}
-                    alt="Pastor Laureen Rakiro"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {/* Bottom Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
-
-                  {/* Text anchored to the bottom of the image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-                    <h3 className="text-2xl font-bold text-white">
-                      Pastor Laureen Rakiro
-                    </h3>
-                    <p className="text-emerald-400 font-semibold uppercase tracking-widest text-sm">
-                      Senior Pastor
-                    </p>
-                  </div>
-                </div>
-                <div className="p-8 text-center">
-                  <p className="text-slate-600 leading-relaxed">
-                    Pastor Laureen serves with a heart of selfless love and
-                    compassion. She is passionate about the perfection of the
-                    saints, the health of godly families, and mentoring leaders
-                    across the five-fold ministry.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Statement of Faith Grid */}
         <StatementOfFaith />
 
         {/* Core Values Grid */}
