@@ -7,6 +7,7 @@ type Event = {
   image: string;
   date: string;
   time: string;
+  link: string;
   location: string;
   description: string;
   buttonText: string;
@@ -35,8 +36,8 @@ export default function EventCard({ event }: EventCardProps) {
         <img
         src={getHighResUrl(event.image)}
         alt={event.title}
-        className={`w-full h-[450px] object-cover shadow-xl transition-transform duration-500 antialiased ${
-          canZoom ? "group-hover:scale-[1.05]" : ""
+        className={`w-full h-auto sm:h-[450px] object-cover shadow-xl transition-transform duration-500 antialiased ${
+          canZoom ? "sm:group-hover:scale-[1.05]" : ""
         }`}
         style={{ 
           imageRendering: 'auto', // Ensures the browser uses the best interpolation
@@ -83,7 +84,7 @@ export default function EventCard({ event }: EventCardProps) {
         </div>
 
         <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200 group">
-          {event.buttonText}
+          <a href={event.link} target="_blank">{event.buttonText}</a>
           <FaArrowRight className="transition-transform group-hover:translate-x-1" />
         </button>
       </div>

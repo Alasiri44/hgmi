@@ -18,26 +18,26 @@ export default function Register() {
         <div className="max-w-6xl w-full bg-white rounded-[40px] overflow-hidden shadow-2xl flex flex-col md:flex-row">
           
 
-          <div className="w-full md:w-4/12 bg-[#1E3A5F] p-12 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-[-20%] right-[-20%] w-64 h-64 bg-[#EFB839] rounded-full opacity-10 blur-3xl"></div>
+          <div className="w-full md:w-4/12 bg-emerald-700 p-12 text-black flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-[-20%] right-[-20%] w-64 h-64 bg-emerald-600 rounded-full opacity-10 blur-3xl"></div>
             
             <div className="relative z-10 sticky top-12">
               <span className="text-[#EFB839] font-bold tracking-widest text-sm uppercase">What's Next?</span>
               <h2 className="text-4xl font-serif font-bold mt-4 mb-6 leading-tight">
                 Your Journey Starts Here.
               </h2>
-              <p className="text-slate-300 leading-relaxed mb-8">
+              <p className="text-black leading-relaxed mb-8">
                 Once you submit your details, our pastoral and welcoming teams will review your information. We'll reach out to officially welcome you and guide you through our foundational classes and ministry placement.
               </p>
               
               <div className="space-y-6 mt-12 hidden md:block">
-                <div className="flex items-center gap-4 text-slate-300">
+                <div className="flex items-center gap-4 text-black-300">
                   <div className="bg-white/10 p-3 rounded-full text-[#EFB839]">
                     <HeartHandshake className="w-5 h-5" />
                   </div>
                   <span className="text-sm">Connect with a mentor</span>
                 </div>
-                <div className="flex items-center gap-4 text-slate-300">
+                <div className="flex items-center gap-4 text-black-300">
                   <div className="bg-white/10 p-3 rounded-full text-[#EFB839]">
                     <MapPin className="w-5 h-5" />
                   </div>

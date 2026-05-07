@@ -10,6 +10,7 @@ type Ministry = {
   subheading: string;
   description: string;
   tags: string[];
+  link: string;
   time: string;
   location: string;
 };
@@ -26,6 +27,7 @@ export default function MinistryCardList() {
   description,
   tags,
   time,
+  link,
   location,
   "image": image.asset->url
       }`;
@@ -90,7 +92,7 @@ export default function MinistryCardList() {
               </div>
 
               <button className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-emerald-200 group">
-                Get Connected
+                 <a href={m.link} target="_blank">Get Connected</a> 
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </button>
             </div>

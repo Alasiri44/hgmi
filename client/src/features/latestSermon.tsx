@@ -105,7 +105,7 @@ export default function LatestSermon() {
 
           <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
-              {video.title || "Annointing Service"}
+              {video.title}
             </h3>
 
             <p className="text-gray-500 text-lg leading-relaxed mb-8">

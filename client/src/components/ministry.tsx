@@ -11,8 +11,8 @@ export default function MinistryCard({ image, title }: MinistryProps) {
       <img
         src={image}
         alt={title}
-        className="w-full h-[400px] object-cover rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
-      />
+        className="w-full h-auto lg:h-[450px] object-contain lg:object-cover lg:object-top rounded-xl sm:rounded-3xl shadow-none sm:shadow-xl"
+  />
 
       <div className="absolute -bottom-6 right-8 bg-blue-600 text-white p-5 rounded-2xl shadow-lg border-4 border-[#FDF9F0]">
         <FaUsers size={24} />
@@ -20,4 +20,3 @@ export default function MinistryCard({ image, title }: MinistryProps) {
     </div>
   );
 }
-

@@ -10,6 +10,7 @@ type Event = {
   image: string;
   date: string;
   time: string;
+  link: string;
   location: string;
   description: string;
   buttonText: string;
@@ -27,6 +28,7 @@ export default function EventCardList() {
         description,
         location,
         time,
+        link,
         buttonText,
         "image": image.asset->url
       }`;

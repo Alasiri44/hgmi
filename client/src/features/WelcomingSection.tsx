@@ -81,18 +81,13 @@ export default function WelcomingSection() {
           <div className="rounded-[40px] overflow-hidden shadow-2xl">
             <img src={audience} alt="audience" className="w-full h-auto min-h-[280px] max-h-[400px]" />
           </div>
-          <div className="absolute bottom-[-20px] left-8 bg-[#EFB839] text-[#1E3A5F] px-8 py-5 rounded-xl font-bold text-center leading-tight shadow-xl">
-            <span className="text-2xl">10+</span>
-            <br />
-            <span className="text-sm font-semibold">Countries<br />Impacted</span>
-          </div>
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col items-start">
           <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#EFB839]">
             NEW HERE?
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1E3A5F] mt-4 mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mt-4 mb-8 leading-tight">
             Our Call & Mission
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-xl">
@@ -108,7 +103,7 @@ export default function WelcomingSection() {
                   {point.icon}
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-[#1E3A5F]">
+                  <h4 className="text-lg font-bold text-slate-600">
                     {point.title}
                   </h4>
                   <p className="text-slate-600 text-sm mt-1 leading-relaxed">
@@ -122,7 +117,7 @@ export default function WelcomingSection() {
           <div className="flex flex-wrap items-center gap-4 mt-12 w-full">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 bg-[#1E3A5F] hover:bg-[#152945] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#1E3A5F]/20 text-sm"
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#1E3A5F]/20 text-sm"
             >
               Get Connected
               <ArrowRight className="w-4 h-4" />
