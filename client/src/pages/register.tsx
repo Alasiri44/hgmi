@@ -1,6 +1,6 @@
-import { HeartHandshake, MapPin, Mail, Phone, Home, Briefcase, Church } from "lucide-react";
 import PageBanner from "../components/pagesBanner";
 import MembershipForm from "../components/membershipForm";
+import { HeartHandshake, MapPin } from "lucide-react";
 
 export default function Register() {
   return (

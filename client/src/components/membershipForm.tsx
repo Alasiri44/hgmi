@@ -10,12 +10,7 @@ import { useState } from "react";
 import { client } from "../lib/sanity";
 import Alert from "./alert";
 
-export default function MembershipForm() {
-  const [alert, setAlert] = useState<{
-    message: string;
-    error?: boolean;
-  } | null>(null);
-  const [formData, setFormData] = useState({
+const initialFormState = {
     firstName: "",
     lastName: "",
     gender: "",
@@ -29,7 +24,14 @@ export default function MembershipForm() {
     previousChurch: "None",
     heardAboutUs: "",
     ministryInterest: "general",
-  });
+}
+
+export default function MembershipForm() {
+  const [alert, setAlert] = useState<{
+    message: string;
+    error?: boolean;
+  } | null>(null);
+  const [formData, setFormData] = useState(initialFormState);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,6 +56,7 @@ export default function MembershipForm() {
       });
 
       setAlert({ message: "Registration Successful!" });
+      setFormData(initialFormState)
     } catch (error) {
       console.error(error);
       setAlert({ message: "Something went wrong", error: true });

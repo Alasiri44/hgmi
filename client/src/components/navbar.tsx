@@ -67,6 +67,12 @@ export default function NavBar() {
         >
           Contact
         </NavLink>
+        <NavLink
+          to="/register"
+          className={({ isActive }) => (isActive ? activeLink : normalLink)}
+        >
+          Join us
+        </NavLink>
       </div>
 
       {/* Action buttons (desktop always visible) */}
@@ -175,6 +181,13 @@ export default function NavBar() {
             className={({ isActive }) => (isActive ? activeLink : normalLink)}
           >
             Contact
+          </NavLink>
+          <NavLink
+            to="/register"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) => (isActive ? activeLink : normalLink)}
+          >
+            Join us
           </NavLink>
         </div>
       )}
