@@ -10,8 +10,8 @@ import Give from "./pages/give";
 import Register from "./pages/register";
 import SermonsList from "./features/sermonsList";
 import ReelsList from "./features/reelsList";
-import BooksList from "./features/booksList";
 import { Navigate } from "react-router-dom";
+import BookCardList from "./features/BookCardList";
 
 
 export const routes = [
@@ -53,7 +53,7 @@ export const routes = [
                     },
                     {
                         path: 'books',
-                        element: < BooksList/>
+                        element: < BookCardList/>
                     }
                 ]
             },
