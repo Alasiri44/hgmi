@@ -92,7 +92,7 @@ export default function WelcomingSection() {
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-xl">
             Whether you're exploring faith for the first time or looking for a
-            spiritual home, you're welcome here. At Higher Grounds, we are
+            spiritual home, you're welcome here. At Higher Ground, we are
             dedicated to raising kingdom ministries globally.
           </p>
 

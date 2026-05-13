@@ -15,7 +15,7 @@ export default function NavBar() {
         <img src={logo} alt="HGMI Logo" className="h-15 w-auto ml-[1px]" />
         <h2 className="text-lg font-bold text-emerald-900 uppercase tracking-tight">
           <span className="lg:hidden">HGMI</span>
-          <span className="hidden lg:block">Higher Grounds</span>
+          <span className="hidden lg:block">Higher Ground</span>
           <span className="hidden lg:block text-emerald-600">
             Ministries International
           </span>

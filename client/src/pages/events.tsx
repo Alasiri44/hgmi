@@ -8,7 +8,7 @@ export default function Events() {
             <PageBanner 
                 title="Upcoming Events"
                 subheading="Stay Connected"
-                paragraph="Join us for our upcoming services and special events. Whether online or in-person, there is always a place for you at Higher Grounds."
+                paragraph="Join us for our upcoming services and special events. Whether online or in-person, there is always a place for you at Higher Ground."
             />
 
             < EventCardList/>

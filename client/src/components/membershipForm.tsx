@@ -27,6 +27,26 @@ const initialFormState = {
   ministryInterest: "general",
 };
 
+function toTitleCase(str: string) {
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function validateForm(data: typeof initialFormState): string | null {
+  if (!data.firstName.trim()) return "First name is required.";
+  if (!data.lastName.trim()) return "Last name is required.";
+  if (!data.gender) return "Please select a gender.";
+  if (!data.dateOfBirth) return "Date of birth is required.";
+  if (!data.phoneNumber.trim()) return "Phone number is required.";
+  if (!/^\d{10}$/.test(data.phoneNumber.trim())) return "Invalid phone number.";
+  if (!data.residence.trim()) return "Area of residence is required.";
+  if (!data.spiritualBackground)
+    return "Please select your spiritual background.";
+  return null;
+}
+
 export default function MembershipForm() {
   const [alert, setAlert] = useState<{
     message: string;
@@ -37,10 +57,31 @@ export default function MembershipForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const sanitized = {
+      ...formData,
+      firstName: toTitleCase(formData.firstName),
+      middleName: toTitleCase(formData.middleName),
+      lastName: toTitleCase(formData.lastName),
+      occupation: toTitleCase(formData.occupation),
+      residence: toTitleCase(formData.residence),
+      previousChurch: formData.previousChurch.trim() || "None",
+      email: formData.email.trim().toLowerCase(),
+      phoneNumber: formData.phoneNumber.replace(/\D/g, ""), // strip any non-digits
+    };
+
+    const validationError = validateForm(sanitized);
+    if (validationError) {
+      setAlert({ message: validationError, error: true });
+      setTimeout(() => {
+        setAlert(null);
+      }, 3000);
+      return;
+    }
+
     try {
       const existingMember = await client.fetch(
         `*[_type == "member" && email == $email][0]`,
-        { email: formData.email.toLowerCase() },
+        { email: sanitized.email},
       );
 
       if (existingMember) {
@@ -48,6 +89,9 @@ export default function MembershipForm() {
           message: "This email is already registered!",
           error: true,
         });
+        setTimeout(() => {
+          setAlert(null);
+        }, 3000);
         return;
       }
 
@@ -56,8 +100,9 @@ export default function MembershipForm() {
         "laureen|rakiro": "HGA002",
       };
 
-      const nameKey =
-        `${formData.firstName}|${formData.lastName}`.toLowerCase().trim();
+      const nameKey = `${sanitized.firstName}|${sanitized.lastName}`
+        .toLowerCase()
+        .trim();
       const reserved = RESERVED_MEMBERS[nameKey];
 
       let nextMemberNumber = "HGA003";
@@ -76,16 +121,22 @@ export default function MembershipForm() {
       }
       await client.create({
         _type: "member",
-        ...formData,
+        ...sanitized,
         memberNumber: nextMemberNumber,
         registrationDate: new Date().toISOString(),
       });
 
       setAlert({ message: "Registration Successful!" });
+      setTimeout(() => {
+        setAlert(null);
+      }, 3000);
       setFormData(initialFormState);
     } catch (error) {
       console.error(error);
       setAlert({ message: "Something went wrong", error: true });
+      setTimeout(() => {
+        setAlert(null);
+      }, 3000);
     }
   };
   return (

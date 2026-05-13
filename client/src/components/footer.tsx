@@ -191,7 +191,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-amber-400 text-center text-xs text-white">
         <p>
-          &copy; {new Date().getFullYear()} Higher Grounds Ministries
+          &copy; {new Date().getFullYear()} Higher Ground Ministries
           International. All rights reserved.
         </p>
       </div>

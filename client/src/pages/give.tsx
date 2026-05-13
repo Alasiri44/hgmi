@@ -13,7 +13,7 @@ export default function Give() {
     <>
       <PageBanner
         title="Generosity"
-        subheading="Giving to Higher Grounds Assembly"
+        subheading="Giving to Higher Ground Assembly"
         paragraph="Your giving impacts us all"
       />
       <div className="bg-[#FDF9F0] min-h-screen font-sans py-16 px-4">
