@@ -11,20 +11,21 @@ import { client } from "../lib/sanity";
 import Alert from "./alert";
 
 const initialFormState = {
-    firstName: "",
-    lastName: "",
-    gender: "",
-    dateOfBirth: "",
-    maritalStatus: "",
-    occupation: "",
-    email: "",
-    phoneNumber: "",
-    residence: "",
-    spiritualBackground: "",
-    previousChurch: "None",
-    heardAboutUs: "",
-    ministryInterest: "general",
-}
+  firstName: "",
+  middleName: "",
+  lastName: "",
+  gender: "",
+  dateOfBirth: "",
+  maritalStatus: "",
+  occupation: "",
+  email: "",
+  phoneNumber: "",
+  residence: "",
+  spiritualBackground: "",
+  previousChurch: "None",
+  heardAboutUs: "",
+  ministryInterest: "general",
+};
 
 export default function MembershipForm() {
   const [alert, setAlert] = useState<{
@@ -39,24 +40,49 @@ export default function MembershipForm() {
     try {
       const existingMember = await client.fetch(
         `*[_type == "member" && email == $email][0]`,
-        { email: formData.email },
+        { email: formData.email.toLowerCase() },
       );
 
-       if (existingMember) {
-      setAlert({
-        message: "This email is already registered!",
-        error: true,
-      });
-      return;
-    }
+      if (existingMember) {
+        setAlert({
+          message: "This email is already registered!",
+          error: true,
+        });
+        return;
+      }
 
+      const RESERVED_MEMBERS: Record<string, string> = {
+        "norbert|rakiro": "HGA001",
+        "laureen|rakiro": "HGA002",
+      };
+
+      const nameKey =
+        `${formData.firstName}|${formData.lastName}`.toLowerCase().trim();
+      const reserved = RESERVED_MEMBERS[nameKey];
+
+      let nextMemberNumber = "HGA003";
+      if (reserved) {
+        nextMemberNumber = reserved;
+      } else {
+        const members = await client.fetch(
+          `*[_type == "member" && defined(memberNumber)] | order(memberNumber desc) [0].memberNumber`,
+        );
+
+        if (members) {
+          const lastNumber = parseInt(members.replace("HGA", ""), 10);
+          const nextNumber = lastNumber + 1;
+          nextMemberNumber = `HGA${String(nextNumber).padStart(3, "0")}`;
+        }
+      }
       await client.create({
         _type: "member",
         ...formData,
+        memberNumber: nextMemberNumber,
+        registrationDate: new Date().toISOString(),
       });
 
       setAlert({ message: "Registration Successful!" });
-      setFormData(initialFormState)
+      setFormData(initialFormState);
     } catch (error) {
       console.error(error);
       setAlert({ message: "Something went wrong", error: true });
@@ -102,6 +128,23 @@ export default function MembershipForm() {
                     })
                   }
                   required
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-600">
+                  Middle Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#EFB839] bg-slate-50"
+                  placeholder=""
+                  value={formData.middleName}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      middleName: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div className="space-y-2">

@@ -27,7 +27,7 @@ export default function Register() {
                 Your Journey Starts Here.
               </h2>
               <p className="text-black leading-relaxed mb-8">
-                Once you submit your details, our pastoral and welcoming teams will review your information. We'll reach out to officially welcome you and guide you through our foundational classes and ministry placement.
+                Once you submit your details, our pastoral and welcoming teams will review your information. We'll reach out to officially welcome you and guide you through our foundation and ministry placement.
               </p>
               
               <div className="space-y-6 mt-12 hidden md:block">

@@ -5,12 +5,31 @@ export default defineType({
   title: "Members",
   type: "document",
   fields: [
-    // PERSONAL DETAILS
+    defineField({
+      name: "memberNumber",
+      title: "Member Number",
+      type: "string",
+      readOnly: true,
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "registrationDate",
+      title: "Registration Date",
+      type: "datetime",
+      readOnly: true,
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "firstName",
       title: "First Name",
       type: "string",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "middleName",
+      title: "Middle Name",
+      type: "string",
     }),
 
     defineField({
