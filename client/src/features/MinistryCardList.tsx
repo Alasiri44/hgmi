@@ -17,6 +17,7 @@ type Ministry = {
 
 export default function MinistryCardList() {
   const [ministries, setMinistries] = useState<Ministry[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,14 +32,26 @@ export default function MinistryCardList() {
         location,
         "image": image.asset->url
             }`;
-
+      setLoading(true);
       const ministriesData = await client.fetch(ministriesQuery);
 
       setMinistries(ministriesData);
+      setLoading(false);
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center w-full my-8">
+        <i
+          className="fa fa-spinner fa-spin text-emerald-600"
+          style={{ fontSize: "48px" }}
+        ></i>
+      </div>
+    );
+  }
 
   return (
     <>

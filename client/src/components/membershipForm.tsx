@@ -7,7 +7,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useState } from "react";
-import { client } from "../lib/sanity";
+import { writeClient } from "../lib/sanity";
 import Alert from "./alert";
 
 const initialFormState = {
@@ -53,10 +53,11 @@ export default function MembershipForm() {
     error?: boolean;
   } | null>(null);
   const [formData, setFormData] = useState(initialFormState);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setLoading(true);
     const sanitized = {
       ...formData,
       firstName: toTitleCase(formData.firstName),
@@ -71,6 +72,7 @@ export default function MembershipForm() {
 
     const validationError = validateForm(sanitized);
     if (validationError) {
+      setLoading(false);
       setAlert({ message: validationError, error: true });
       setTimeout(() => {
         setAlert(null);
@@ -79,16 +81,35 @@ export default function MembershipForm() {
     }
 
     try {
-      const existingMember = await client.fetch(
-        `*[_type == "member" && email == $email][0]`,
-        { email: sanitized.email},
+      const existingMember = await writeClient.fetch(
+        `*[_type == "member" && (email == $email || phoneNumber == $phone)][0]`,
+        {
+          email: sanitized.email,
+          phone: sanitized.phoneNumber,
+        },
       );
 
       if (existingMember) {
+        setLoading(false);
+        const isEmailMatch = existingMember.email === sanitized.email;
+        const isPhoneMatch =
+          existingMember.phoneNumber === sanitized.phoneNumber;
+
+        let message = "Member already registered!";
+
+        if (isEmailMatch && isPhoneMatch) {
+          message = "This email and phone number are already registered!";
+        } else if (isEmailMatch) {
+          message = "This email is already registered!";
+        } else if (isPhoneMatch) {
+          message = "This phone number is already registered!";
+        }
+
         setAlert({
-          message: "This email is already registered!",
+          message,
           error: true,
         });
+
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -109,7 +130,7 @@ export default function MembershipForm() {
       if (reserved) {
         nextMemberNumber = reserved;
       } else {
-        const members = await client.fetch(
+        const members = await writeClient.fetch(
           `*[_type == "member" && defined(memberNumber)] | order(memberNumber desc) [0].memberNumber`,
         );
 
@@ -119,13 +140,14 @@ export default function MembershipForm() {
           nextMemberNumber = `HGA${String(nextNumber).padStart(3, "0")}`;
         }
       }
-      await client.create({
+      await writeClient.create({
         _type: "member",
         ...sanitized,
         memberNumber: nextMemberNumber,
         registrationDate: new Date().toISOString(),
       });
 
+      setLoading(false);
       setAlert({ message: "Registration Successful!" });
       setTimeout(() => {
         setAlert(null);
@@ -133,6 +155,7 @@ export default function MembershipForm() {
       setFormData(initialFormState);
     } catch (error) {
       console.error(error);
+      setLoading(false);
       setAlert({ message: "Something went wrong", error: true });
       setTimeout(() => {
         setAlert(null);
@@ -489,7 +512,16 @@ export default function MembershipForm() {
             type="submit"
             className="w-full bg-[#EFB839] hover:bg-[#d9a32c] text-[#1E3A5F] py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#EFB839]/30 mt-8 text-lg"
           >
-            Complete Registration
+            {loading ? (
+              <div className="flex justify-center items-center w-full">
+                <i
+                  className="fa fa-spinner fa-spin"
+                  style={{ fontSize: "24px" }}
+                ></i>
+              </div>
+            ) : (
+              "Complete Registration"
+            )}
           </button>
         </form>
       </div>

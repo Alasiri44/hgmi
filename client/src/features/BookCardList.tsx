@@ -18,6 +18,7 @@ type Book = {
 
 export default function BookCardList() {
   const [books, setBooks] = useState<Book[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,14 +34,27 @@ export default function BookCardList() {
         buttonText,
         "image": image.asset->url
       }`;
+      setLoading(true);
 
       const booksData = await client.fetch(booksQuery);
 
       setBooks(booksData);
+      setLoading(false);
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center w-full my-8">
+        <i
+          className="fa fa-spinner fa-spin text-emerald-600"
+          style={{ fontSize: "48px" }}
+        ></i>
+      </div>
+    );
+  }
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">

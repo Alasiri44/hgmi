@@ -83,7 +83,16 @@ export default function ReelsList() {
     fetchReels();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className="flex justify-center w-full my-8">
+        <i
+          className="fa fa-spinner fa-spin text-emerald-600"
+          style={{ fontSize: "48px" }}
+        ></i>
+      </div>
+    );
+  }
   if (error) return <p>Error: {error}</p>;
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4">

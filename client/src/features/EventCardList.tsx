@@ -17,6 +17,7 @@ type Event = {
 };
 export default function EventCardList() {
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,14 +33,26 @@ export default function EventCardList() {
         buttonText,
         "image": image.asset->url
       }`;
-
+      setLoading(true)
       const eventsData = await client.fetch(eventsQuery);
 
       setEvents(eventsData);
+      setLoading(false);
     };
 
     fetchData();
   }, []);
+
+    if (loading) {
+    return (
+      <div className="flex justify-center w-full my-8">
+        <i
+          className="fa fa-spinner fa-spin text-emerald-600"
+          style={{ fontSize: "48px" }}
+        ></i>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -6,5 +6,12 @@ export const client = createClient({
   dataset: "production",
   apiVersion: "2024-01-01",
   useCdn: true,
+});
+
+export const writeClient = createClient({
+  projectId: "hszx9wpv", 
+  dataset: "production",
+  apiVersion: "2024-01-01",
+  useCdn: false,
   token: SANITY_API_TOKEN,
 });
